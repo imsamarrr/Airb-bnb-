@@ -1,0 +1,141 @@
+.fa-compass {
+    color: #ff4567 !important;
+    font-size: 2rem;
+}
+
+.indexa {
+    text-decoration: none;
+}
+
+
+.navbar {
+    height: 5rem;
+    background-color: white;
+}
+
+.nav-link {
+    color: #222222 !important;
+}
+
+.f-info-conditions a {
+    text-decoration: none;
+    color: black;
+}
+
+.f-info-conditions a:hover {
+    text-decoration: underline;
+
+}
+
+.f-info {
+    display: flex;
+    justify-content: center;
+    align-items: space-evenly;
+    height: 8rem;
+    background-color: #ebebeb;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.f-info-socials {
+    font-size: 1.2rem;
+}
+
+
+.f-info-conditions,
+.f-info-socials,
+.f-info-conditions {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-conditions {
+    column-gap: .5rem;
+}
+
+.f-info-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-listing {
+    padding: 1rem;
+    border: none !important;
+    margin-bottom: 1rem;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-img-top:hover {
+    opacity: 0.8;
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+.card-body p {
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-top: 0.8rem;
+    line-height: .5rem;
+}
+
+* {
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.btn {
+    background-color: #ff4567 !important;
+    border: none !important;
+}
+
+.card-img {
+    height: 30vh;
+    /* width:30vw !important; */
+    object-fit: cover;
+    border-radius: 1rem !important;
+}
+
+.card-listing {
+    padding: 0 !important;
+}
+
+.btn-dark-d {
+    background-color: black !important;
+    color: white !important;
+}
+
+.btn-my {
+    background-color: white;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0.1px solid black;
+    height: 4.6vh;
+    border-radius: .5rem;
+    transition: all 0.1s 0.1s linear;
+}
+
+.btn-my:hover {
+    color: white;
+    background-color: black;
+}
+
+.card-review {
+    width: 25rem !important;
+}
+
+#map {
+    height: 400px;
+    width : 56vw;
+    margin-bottom  : 2rem;
+    margin-top : 1rem;
+    border-radius: 1rem;
+}

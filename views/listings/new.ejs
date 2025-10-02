@@ -1,0 +1,71 @@
+<% layout("/layouts/boilerplate") %>
+
+    <body>
+        <div class="row">
+            <form method="post" class="needs-validation" action="/listing" novalidate enctype="multipart/form-data">
+                <div class="col-6 offset-3">
+                    <h1 style="margin : 1rem 1rem 1rem 0;">Add your Hotel</h1>
+
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" name="hotel[title]" placeholder="enter title" class="form-control" required>
+                        
+                        <div class="valid-feedback">
+                            Looks Good
+                        </div>
+                        
+                        <div class="invalid-feedback">
+                            Please enter title
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" name="hotel[description]" required></textarea>
+                        <div class="invalid-feedback">
+                            Please enter description
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image</label>
+                        <input type="file" name="hotel[image]" placeholder="Paste image URL" class="form-control">
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-3">
+                            <label for="price" class="form-label">Price</label>
+                            <input type="text" name="hotel[price]" placeholder="enter price" class="form-control"
+                                required>
+                            <div class="invalid-feedback">
+                                Enter price
+                            </div>
+                        </div>
+
+                        <div class="mb-3 col-9">
+                            <label for="country" class="form-label">Country</label>
+                            <input type="text" name="hotel[country]" placeholder="enter country" class="form-control"
+                                required>
+                                <div class="invalid-feedback">
+                            Please enter country
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" name="hotel[location]" placeholder="enter location" class="form-control"
+                            required>
+                            <div class="invalid-feedback">
+                            Please enter location
+                        </div>
+                    </div>
+
+                    <button style="margin-bottom : 1rem;" class="btn btn-dark">Add</button>
+                </div>
+
+            </form>
+        </div>
+    </body>

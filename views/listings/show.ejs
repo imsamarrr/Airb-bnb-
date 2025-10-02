@@ -1,0 +1,119 @@
+<% layout("/layouts/boilerplate") %>
+
+
+    <body>
+        <div class="row">
+
+            <div class="col-8 offset-2">
+                <h1 style="margin:1rem 1rem 1rem 0;">
+                    <%=hotels.title%>
+                </h1>
+                <div class="card card-listing">
+                    <img src="<%=hotels.image.url%>" class="card-img" alt="listing-image">
+                    <div class="card-body">
+                        <p class="card-text">
+                            owned by : <b>
+                                <%=hotels.owner.username%>
+                            </b>
+                        </p>
+                        <ul>
+                            <li>
+                                <%=hotels.description%>
+                            </li>
+                            <li>
+                                <%=hotels.location%>
+                            </li>
+                            <li>
+                                <%=hotels.country%>
+                            </li>
+                            <li>&#8377;<%=hotels.price.toLocaleString("en-IN")%></li>
+                        </ul>
+                    </div>
+                </div>
+                <%if(currUser && currUser._id.equals(hotels.owner._id)){%>
+                    <div class="row">
+                        <div class="col-1">
+                            <form method="get" action="/show/<%=hotels._id%>/edit"><button style="margin-bottom : 1rem;"
+                                    class="btn btn-dark">Edit</button></form>
+                        </div>
+                        <div class="col-2">
+                            <form method="post" action="/show/<%=hotels._id%>?_method=DELETE"><button
+                                    style="margin-bottom : 1.7rem;" class="btn btn-dark-d">Delete</button></form>
+                        </div>
+
+                    </div>
+                    <% } %>
+            </div>
+            <div class="col-8 offset-2">
+                <%if(currUser) { %>
+                    <hr>
+                    <h4>Leave a review</h4>
+                    <form method="post" action="/show/<%=hotels._id%>/review" novalidate class="needs-validation">
+                        <div>
+                            <!-- <label for="rating" class="form-label">Rating</label>
+                        <input type="range" min="0" max="5" id="rating" class="form-range" name="Review[rating]"> -->
+                            <fieldset class="starability-basic">
+                                <legend>First rating:</legend>
+                                <input type="radio" id="no-rate" class="input-no-rate" name="Review[rating]" value="0"
+                                    checked aria-label="No rating." />
+                                <input type="radio" id="first-rate1" name="Review[rating]" value="1" />
+                                <label for="first-rate1" title="Terrible">1 star</label>
+                                <input type="radio" id="first-rate2" name="Review[rating]" value="2" />
+                                <label for="first-rate2" title="Not good">2 stars</label>
+                                <input type="radio" id="first-rate3" name="Review[rating]" value="3" />
+                                <label for="first-rate3" title="Average">3 stars</label>
+                                <input type="radio" id="first-rate4" name="Review[rating]" value="4" />
+                                <label for="first-rate4" title="Very good">4 stars</label>
+                                <input type="radio" id="first-rate5" name="Review[rating]" value="5" />
+                                <label for="first-rate5" title="Amazing">5 stars</label>
+                            </fieldset>
+                        </div>
+                        <div>
+                            <label for="comments" class="form-label">Comment</label>
+                            <textarea id="comments" name="Review[comment]" cols="10" rows="5" class="form-control"
+                                required></textarea>
+
+                            <div class="invalid-feedback">Please write a comment</div>
+                        </div>
+                        <button class="btn-my btn-outline-dark">Submit</button>
+                    </form>
+                    <% } %>
+                        <hr>
+                        <%if(hotels.Review.length) { %>
+                            <h4>All reviews</h4>
+                            <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+                                <% for(review of hotels.Review) { %>
+                                    <div class="card card-review col-5 mt-3 mb-3 ms-3">
+                                        <h4 class="card-title mt-1">
+                                            <%=review.author.username%>
+                                        </h4>
+                                        <p class="card-text pt-2">
+                                            <%=review.comment%>
+                                        </p>
+                                        <p class="starability-result card-text mb-2" data-rating="<%=review.rating%>">
+                                        </p>
+                                        <% if(currUser && currUser._id.equals(review.author._id)) { %>
+                                            <form method="post"
+                                                action="/show/<%=hotels._id%>/review/<%=review._id%>?_method=DELETE">
+                                                <button class="btn-my btn-dark-d">Delete</button>
+                                            </form>
+                                            <% } %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                            <% } %>
+            </div>
+            <div class="col-8 offset-2">
+                <div>
+                    <h4>Where you'll be</h4>
+                </div>
+                <div id="map"></div>
+
+                <script>
+                    let mapToken = "<%=process.env.MAP_TOKEN%>";
+                    let coordinates = <%- JSON.stringify(hotels.geometry.coordinates) %>;
+                </script>
+                  <script src="/js/map.js"></script>
+            </div>
+        </div>
+    </body>

@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-sm bg-body-primary border-bottom navbar sticky-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/listing"><i class="fa-regular fa-compass"></i></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/listing">Explore</a>
+                </li>
+            </ul>
+        </div>
+
+
+        <style>
+            .search-bar {
+                display: flex;
+                margin-left: 1rem;
+            }
+
+            .me-2 {
+                width: 15vw !important;
+                border-radius: 4rem;
+                padding-left: 2.5rem;
+                font-size: 0.9rem;
+            }
+
+            .btn-navbar {
+                background-color: #ff4567 !important;
+                color: rgb(255, 255, 255);
+                border: 1px solid rgba(0, 0, 0, 0.212) !important;
+                border-radius: 4rem;
+                font-size: 0.9rem;
+            }
+
+            .btn-navbar:hover {
+                background-color: #ffffff !important;
+                color: rgb(0, 0, 0);
+                border: 1px solid rgba(0, 0, 0, 0.212) !important;
+            }
+        </style>
+
+            <div class="search-bar navbar-nav">
+                <input class="form-control me-2" type="search" placeholder="Search Destinations" aria-label="Search" />
+                <button class="btn btn-navbar" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+            </div>
+
+        <div class="collapse navbar-collapse" style="justify-content : flex-end!important;" id="navbarNav">
+            <ul class="navbar-nav">
+                <a class="nav-link" href="/listing/new">Airbnb your home</a>
+                <% if(!currUser) { %>
+                    <a class="nav-link" aria-current="page" href="/signup"><b>Sign Up</b></a>
+                    <a class="nav-link" href="/login"><b>Log in</b></a>
+                    <% }%>
+                        <%if(currUser) { %>
+                            <a class="nav-link" href="/logout"><b>Log out</b></a>
+                            <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>
